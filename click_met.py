@@ -3,7 +3,6 @@ import numpy as np
 import time
 import threading
 import wave
-# import winsound
 import sounddevice as sd
 
 scaled_seconds = []
