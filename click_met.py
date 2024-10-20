@@ -3,38 +3,8 @@ import numpy as np
 import time
 import threading
 import wave
-# import winsound
-# import sounddevice as sd
 
 scaled_seconds = []
-
-
-# def play_metronome(seconds, duration):
-#
-#     global scaled_seconds
-#     last_second = seconds[-1]
-#     input_duration = last_second + 1
-#     scaling_factor = duration / input_duration
-#     scaled_seconds = [second * scaling_factor for second in seconds]
-#     def play_beep(start_time):
-#         winsound.Beep(440, 100)
-#         # print(f"Metronome ticked at time {time.time() - start_time:.2f} seconds")
-#
-#     def play_metronome_ticks(scaled_seconds):
-#         for second in scaled_seconds:
-#             delay = second
-#             if delay > 0:
-#                 start_time = time.time()
-#                 threading.Timer(delay, play_beep, args=[start_time]).start()
-#
-#     play_metronome_ticks(scaled_seconds)
-
-
-
-# def play_metronome_with_subdivisions(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions):
-#     audio_data, sample_rate = process_file(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions)
-#     sd.play(audio_data, sample_rate)
-#     sd.wait()
 
 
 def generate_tone(duration_ms, sample_rate=44100, frequency=440.0):
@@ -113,9 +83,6 @@ def write_to_wav_file(audio_data, filename, sample_rate):
 def main():
 
     st.set_page_config(layout="wide")
-
-    # st.sidebar.markdown("[Link to Streamlit](https://www.streamlit.io/)")
-
     
     with st.chat_message('user'):
         
@@ -174,8 +141,6 @@ def main():
 
     st.write('##')
     st.title("**Welcome to** Sync-TUG")
-    # st.toast(':question: Kindly **scroll up** to find the **Help** section.')
-
 
     seconds = st.text_input("Seconds [space-separated]", placeholder="Example: 1 3 7", help="Example: 1 3 7")
     seconds_for_subdivisions = seconds.split()
@@ -191,10 +156,7 @@ def main():
     duration = st.number_input("Desired Output Duration [seconds]", min_value=1.0, step=0.1, value=default_duration, help="Example: 10")
     filename = st.text_input("Output Filename", placeholder="Example: subject_01", value='TUG_MI_Trial_0',help="Example: subject_01")
 
-    # Checkbox to enable subdivisions
     enable_subdivisions = st.checkbox("Enable subdivisions")
-
-
 
     subdivisions = None
     numb_subdivisions = None
@@ -229,40 +191,6 @@ def main():
     unsafe_allow_html=True
 )
 
-
-    
-    # if st.button("Preview"):
-    #     try:
-    #         if enable_subdivisions:
-    #             with st.spinner(text='Playing'):
-    #                 play_metronome_with_subdivisions(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions)
-    #                 st.toast('**Completed** :white_check_mark:')
-    #
-    #         else:
-    #             with st.spinner(text='Playing'):
-    #                 play_metronome(seconds, duration)
-    #                 time.sleep(seconds[-1] + 1)
-    #
-    #                 st.toast('**Completed** :white_check_mark:')
-    #     except Exception as e:
-    #         st.warning(e)
-    #         st.warning('The fields above are required.')
-    
-        
-    # if st.button("Download Baseline"):
-    #     try:
-    #         if not filename:
-    #             st.warning('Please enter a filename.')
-    #             quit()
-    #
-    #         try:
-    #             audio_data, sample_rate = process_file(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions)
-    #             write_to_wav_file(audio_data, filename, sample_rate)
-    #
-    #         except Exception as e:
-    #             st.warning(e)
-    #     except Exception as e:
-    #             st.warning(e)
         
   
     if st.button("Generate All"):
