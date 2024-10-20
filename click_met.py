@@ -4,7 +4,7 @@ import time
 import threading
 import wave
 # import winsound
-import sounddevice as sd
+# import sounddevice as sd
 
 scaled_seconds = []
 
