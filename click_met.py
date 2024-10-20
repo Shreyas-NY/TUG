@@ -136,7 +136,7 @@ def main():
 
      - Click "Download Baseline" to download the previewed WAV file.
      Ensure a valid filename is entered.
-      - Click "Generate All" to download the incremental/decremental metronome.''')
+      - Click "Download" to download the incremental/decremental metronome.''')
 
 
     st.write('##')
