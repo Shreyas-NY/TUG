@@ -88,7 +88,7 @@ def main():
         
         st.write("HELP")
         st.header('INFORMATION')
-        st.markdown('#### It is under development')
+        st.markdown('# It is under development')
 
         
         tab1, tab2 = st.tabs(["NOTES", 'GUIDE ME'])
