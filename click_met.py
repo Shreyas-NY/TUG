@@ -190,8 +190,14 @@ def main():
                 filename = 'Trial_' + f'{i+1}'
                 audio_data, sample_rate = process_file(seconds, list_of_durations[i], filename, enable_subdivisions, subdivisions, numb_subdivisions)
                 write_to_wav_file(audio_data, filename, sample_rate)
-                with open(filename, 'rb') as f:
-                    st.download_button('Download the WAV file', f, file_name=filename)
+                with open(filename + '.wav', 'rb') as f:
+                    # Streamlit's download button will now serve the file directly
+                    st.download_button(
+                        label=f"Download {filename}.wav",  # Hidden to user
+                        data=f,
+                        file_name=f"{filename}.wav",
+                        mime="audio/wav"
+                    )
 
             st.success('Done')
 
