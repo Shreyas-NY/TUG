@@ -3,31 +3,31 @@ import numpy as np
 import time
 import threading
 import wave
-import winsound
+# import winsound
 import sounddevice as sd
 
 scaled_seconds = []
 
 
-def play_metronome(seconds, duration):
-    
-    global scaled_seconds
-    last_second = seconds[-1]
-    input_duration = last_second + 1
-    scaling_factor = duration / input_duration
-    scaled_seconds = [second * scaling_factor for second in seconds]
-    def play_beep(start_time):
-        winsound.Beep(440, 100)
-        # print(f"Metronome ticked at time {time.time() - start_time:.2f} seconds")
-
-    def play_metronome_ticks(scaled_seconds):
-        for second in scaled_seconds:
-            delay = second
-            if delay > 0:
-                start_time = time.time()
-                threading.Timer(delay, play_beep, args=[start_time]).start()
-
-    play_metronome_ticks(scaled_seconds)
+# def play_metronome(seconds, duration):
+#
+#     global scaled_seconds
+#     last_second = seconds[-1]
+#     input_duration = last_second + 1
+#     scaling_factor = duration / input_duration
+#     scaled_seconds = [second * scaling_factor for second in seconds]
+#     def play_beep(start_time):
+#         winsound.Beep(440, 100)
+#         # print(f"Metronome ticked at time {time.time() - start_time:.2f} seconds")
+#
+#     def play_metronome_ticks(scaled_seconds):
+#         for second in scaled_seconds:
+#             delay = second
+#             if delay > 0:
+#                 start_time = time.time()
+#                 threading.Timer(delay, play_beep, args=[start_time]).start()
+#
+#     play_metronome_ticks(scaled_seconds)
 
 
 
@@ -231,38 +231,38 @@ def main():
 
 
     
-    if st.button("Preview"):
-        try:
-            if enable_subdivisions:
-                with st.spinner(text='Playing'):
-                    play_metronome_with_subdivisions(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions)
-                    st.toast('**Completed** :white_check_mark:')
-
-            else:
-                with st.spinner(text='Playing'):
-                    play_metronome(seconds, duration)
-                    time.sleep(seconds[-1] + 1)
-
-                    st.toast('**Completed** :white_check_mark:')
-        except Exception as e:
-            st.warning(e)
-            st.warning('The fields above are required.')
+    # if st.button("Preview"):
+    #     try:
+    #         if enable_subdivisions:
+    #             with st.spinner(text='Playing'):
+    #                 play_metronome_with_subdivisions(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions)
+    #                 st.toast('**Completed** :white_check_mark:')
+    #
+    #         else:
+    #             with st.spinner(text='Playing'):
+    #                 play_metronome(seconds, duration)
+    #                 time.sleep(seconds[-1] + 1)
+    #
+    #                 st.toast('**Completed** :white_check_mark:')
+    #     except Exception as e:
+    #         st.warning(e)
+    #         st.warning('The fields above are required.')
     
         
-    if st.button("Download Baseline"):
-        try:
-            if not filename:
-                st.warning('Please enter a filename.')
-                quit()
-
-            try:
-                audio_data, sample_rate = process_file(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions)
-                write_to_wav_file(audio_data, filename, sample_rate)
-
-            except Exception as e:
-                st.warning(e)
-        except Exception as e:
-                st.warning(e)
+    # if st.button("Download Baseline"):
+    #     try:
+    #         if not filename:
+    #             st.warning('Please enter a filename.')
+    #             quit()
+    #
+    #         try:
+    #             audio_data, sample_rate = process_file(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions)
+    #             write_to_wav_file(audio_data, filename, sample_rate)
+    #
+    #         except Exception as e:
+    #             st.warning(e)
+    #     except Exception as e:
+    #             st.warning(e)
         
   
     if st.button("Generate All"):
