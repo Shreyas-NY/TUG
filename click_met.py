@@ -3,6 +3,7 @@ import numpy as np
 import time
 import threading
 import wave
+import io
 
 scaled_seconds = []
 
