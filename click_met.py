@@ -186,6 +186,9 @@ def main():
         try:
             list_of_durations = calculate_durations(duration, number_of_trials)
 
+            concatenated_audio = []
+            final_audio_data = []
+
             for i in range(len(list_of_durations)):
                 filename = 'Trial_' + f'{i+1}'
                 audio_data, sample_rate = process_file(seconds, list_of_durations[i], filename, enable_subdivisions, subdivisions, numb_subdivisions)
