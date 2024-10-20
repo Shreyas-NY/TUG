@@ -189,15 +189,28 @@ def main():
             for i in range(len(list_of_durations)):
                 filename = 'Trial_' + f'{i+1}'
                 audio_data, sample_rate = process_file(seconds, list_of_durations[i], filename, enable_subdivisions, subdivisions, numb_subdivisions)
-                write_to_wav_file(audio_data, filename, sample_rate)
-                with open(filename + '.wav', 'rb') as f:
-                    # Streamlit's download button will now serve the file directly
-                    st.download_button(
-                        label=f"Download {filename}.wav",  # Hidden to user
-                        data=f,
-                        file_name=f"{filename}.wav",
-                        mime="audio/wav"
-                    )
+                concatenated_audio.append(audio_data)
+
+            final_audio_data = np.concatenate(concatenated_audio)
+            wav_buffer = io.BytesIO()
+            write_to_wav_file(final_audio_data, wav_buffer, sample_rate)
+            wav_buffer.seek(0)
+            st.download_button(
+                label="Download all WAV files concatenated",
+                data=wav_buffer,
+                file_name="concatenated_audio.wav",
+                mime="audio/wav"
+            )
+
+                # write_to_wav_file(audio_data, filename, sample_rate)
+                # with open(filename + '.wav', 'rb') as f:
+                #     # Streamlit's download button will now serve the file directly
+                #     st.download_button(
+                #         label=f"Download {filename}.wav",  # Hidden to user
+                #         data=f,
+                #         file_name=f"{filename}.wav",
+                #         mime="audio/wav"
+                #     )
 
             st.success('Done')
 
