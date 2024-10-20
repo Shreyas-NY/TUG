@@ -3,6 +3,7 @@ import numpy as np
 import time
 import threading
 import wave
+# import winsound
 import sounddevice as sd
 
 scaled_seconds = []
@@ -30,10 +31,10 @@ scaled_seconds = []
 
 
 
-def play_metronome_with_subdivisions(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions):
-    audio_data, sample_rate = process_file(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions)
-    sd.play(audio_data, sample_rate)
-    sd.wait()
+# def play_metronome_with_subdivisions(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions):
+#     audio_data, sample_rate = process_file(seconds, duration, filename, enable_subdivisions, subdivisions, numb_subdivisions)
+#     sd.play(audio_data, sample_rate)
+#     sd.wait()
 
 
 def generate_tone(duration_ms, sample_rate=44100, frequency=440.0):
