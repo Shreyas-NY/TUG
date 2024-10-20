@@ -129,7 +129,7 @@ def main():
 
     seconds = st.text_input("Seconds [space-separated]", placeholder="Example: 1 3 7", help="Example: 1 3 7")
     seconds_for_subdivisions = seconds.split()
-    seconds = [int(second) for second in seconds.split()]
+    seconds = [float(second) for second in seconds.split()]
     
     number_of_trials = st.number_input("Number of Trials for Motor Imagery", min_value=1, step=1, value=10 ,placeholder="Example: 10", help="Example: 10")
     
