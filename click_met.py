@@ -79,6 +79,9 @@ def write_to_wav_file(audio_data, filename, sample_rate):
     
     st.success('Success! Please check your directory :)')
 
+    with open(filename, 'rb') as f:
+        st.download_button('Download the WAV file', f, file_name=filename)
+
 
 def main():
 
