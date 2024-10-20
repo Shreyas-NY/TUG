@@ -103,9 +103,7 @@ def main():
             # st.markdown("<hr>", unsafe_allow_html=True)
             st.markdown('### BUTTONS')
             st.write('''
-1. Preview: Plays a preview of the metronome based on the specified parameters.
-2. Download: Downloads a WAV file of the baseline metronome.
-3. Generate: Downloads all WAV file of the incremental/decremental metronome.''')
+1. Download: Downloads all WAV file of the incremental/decremental metronome.''')
             st.markdown("<hr>", unsafe_allow_html=True)
             st.markdown('### SETTINGS')
             st.write('''
@@ -124,19 +122,6 @@ def main():
 - **Configure Subdivisions (Optional)**
      1. Enable subdivisions for cues.
      2. Select subdivisions between specified time intervals and adjust the number of subdivisions as needed.''')
-
-            st.write('''
-- **Preview Metronome**
-
-     1. Click the "Preview" button to listen to a preview of the baseline-metronome based on the entered settings.
-     2. Adjust settings as necessary.''')
-
-            st.write('''
- - **Download Metronome Audio**
-
-     - Click "Download Baseline" to download the previewed WAV file.
-     Ensure a valid filename is entered.
-      - Click "Download" to download the incremental/decremental metronome.''')
 
 
     st.write('##')
@@ -193,7 +178,7 @@ def main():
 
         
   
-    if st.button("Generate All"):
+    if st.button("DOWNLOAD"):
 
         try:
             list_of_durations = calculate_durations(duration, number_of_trials)
