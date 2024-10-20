@@ -79,8 +79,8 @@ def write_to_wav_file(audio_data, filename, sample_rate):
     
     # st.success('Success! Please check your directory :)')
 
-    with open(filename, 'rb') as f:
-        st.download_button('Download the WAV file', f, file_name=filename)
+    # with open(filename, 'rb') as f:
+    #     st.download_button('Download the WAV file', f, file_name=filename)
 
 
 def main():
@@ -190,6 +190,9 @@ def main():
                 filename = 'Trial_' + f'{i+1}'
                 audio_data, sample_rate = process_file(seconds, list_of_durations[i], filename, enable_subdivisions, subdivisions, numb_subdivisions)
                 write_to_wav_file(audio_data, filename, sample_rate)
+                with open(filename, 'rb') as f:
+                    st.download_button('Download the WAV file', f, file_name=filename)
+
             st.success('Done')
 
 
