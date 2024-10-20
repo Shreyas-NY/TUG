@@ -88,7 +88,7 @@ def main():
         
         st.write("HELP")
         st.header('INFORMATION')
-        st.markdown('#### Developed at the BIO-FEEDBACK LAB, at Ramaiah Memorial Hospital.')
+        st.markdown('#### It is under development')
 
         
         tab1, tab2 = st.tabs(["NOTES", 'GUIDE ME'])
