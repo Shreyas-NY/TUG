@@ -78,7 +78,7 @@ def write_to_wav_file(audio_data, filename, sample_rate):
         wav_file.setframerate(sample_rate)
         wav_file.writeframes(audio_data_pcm.tobytes())
     
-        with open(filename + '.wav', 'rb') as f:
+        with open(filename, 'rb') as f:
         # Streamlit's download button will now serve the file directly
             st.download_button(
                 label=f"Download {filename}.wav",  # Hidden to user
