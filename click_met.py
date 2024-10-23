@@ -115,7 +115,7 @@ def main():
             # st.markdown("<hr>", unsafe_allow_html=True)
             st.markdown('### BUTTONS')
             st.write('''
-1. Download: Downloads all WAV file of the incremental/decremental metronome.''')
+1. Download: Downloads a single WAV file of the concatenated incremental/decremental metronome.''')
             st.markdown("<hr>", unsafe_allow_html=True)
             st.markdown('### SETTINGS')
             st.write('''
