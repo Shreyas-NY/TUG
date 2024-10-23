@@ -148,8 +148,12 @@ if uploaded_files:
                 group = df['timestamps'].iloc[i::6]
                 avg = round(group.mean(), 2)  # Calculate the average of the group
                 averages.append(float(avg))
+                
+            averages_str = ' '.join(f"{avg:.2f}" for avg in averages)
 
-            st.info(averages)
+            # Display the averages in Streamlit without brackets
+            st.success(averages_str)
+            # st.info(averages)
 
 
 else:
