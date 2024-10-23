@@ -134,7 +134,7 @@ if uploaded_files:
         if st.button('Average Phase Time'):
             # Sample DataFrame with timestamps (replace this with your actual DataFrame)
             data = {
-                'timestamps': [(timestamps[i]) for i in st.session_state.selected_frames]
+                'timestamps': [np.float64(timestamps[i]) for i in st.session_state.selected_frames if i < len(timestamps)]
             }
 
             df = pd.DataFrame(data)
