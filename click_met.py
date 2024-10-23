@@ -78,15 +78,15 @@ def write_to_wav_file(audio_data, filename, sample_rate, seconds):
     
     audio_data_pcm = (audio_data * 32767).astype(np.int16)
 
-    filename = filename + '.wav'
+    filename_wav = filename + '.wav'
     
-    with wave.open(filename, 'wb') as wav_file:
+    with wave.open(filename_wav, 'wb') as wav_file:
         wav_file.setnchannels(1)
         wav_file.setsampwidth(2)
         wav_file.setframerate(sample_rate)
         wav_file.writeframes(audio_data_pcm.tobytes())
     
-        with open(filename, 'rb') as f:
+        with open(filename_wav, 'rb') as f:
         # Streamlit's download button will now serve the file directly
             st.download_button(
                 label=f"Download {seconds}",  # Hidden to user
@@ -154,7 +154,7 @@ def main():
         default_duration = 1.0
         
     duration = st.number_input("Desired Output Duration [seconds]", min_value=1.0, step=0.1, value=default_duration, help="Example: 10")
-    filename = st.text_input("Output Filename", placeholder="Example: subject_01", value='TUG_MI_',help="Example: subject_01")
+    filename = st.text_input("Output Filename", placeholder="Example: subject_01", value='TUG_MI',help="Example: subject_01")
 
     enable_subdivisions = st.checkbox("Enable subdivisions")
 
