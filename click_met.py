@@ -184,26 +184,26 @@ def main():
 )
 
     
-    if st.button("DOWNLOAD"):
+    # if st.button("DOWNLOAD"):
 
-        try:
-            list_of_durations = calculate_durations(duration, number_of_trials)
-    
-            concatenated_audio = np.array([])
-            final_sample_rate = None
-    
-            for i in range(len(list_of_durations)):
-                filename = 'Trial_' + f'{i+1}'
-                audio_data, sample_rate = process_file(seconds, list_of_durations[i], filename, enable_subdivisions, subdivisions, numb_subdivisions)
-                concatenated_audio = np.concatenate((concatenated_audio, audio_data)) if concatenated_audio.size else audio_data
-                final_sample_rate = sample_rate
-    
-            write_to_wav_file(concatenated_audio, filename, sample_rate, seconds)
-                # write_to_wav_file(audio_data, filename, sample_rate)
-    
-    
-        except Exception as e:
-            st.warning('Please check if all fields are filled.')
+    try:
+        list_of_durations = calculate_durations(duration, number_of_trials)
+
+        concatenated_audio = np.array([])
+        final_sample_rate = None
+
+        for i in range(len(list_of_durations)):
+            filename = 'Trial_' + f'{i+1}'
+            audio_data, sample_rate = process_file(seconds, list_of_durations[i], filename, enable_subdivisions, subdivisions, numb_subdivisions)
+            concatenated_audio = np.concatenate((concatenated_audio, audio_data)) if concatenated_audio.size else audio_data
+            final_sample_rate = sample_rate
+
+        write_to_wav_file(concatenated_audio, filename, sample_rate, seconds)
+            # write_to_wav_file(audio_data, filename, sample_rate)
+
+
+    except Exception as e:
+        st.warning('Please check if all fields are filled.')
 
         
         
