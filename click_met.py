@@ -48,11 +48,19 @@ def process_file(seconds, duration, filename, enable_subdivisions, subdivisions,
     scaling_factor = duration / input_duration
     sample_rate = 44100
     total_samples = int(duration * sample_rate)
-    tone = generate_tone(100, sample_rate, 440.0)
+    special_frequency = 660.0    
+    # tone = generate_tone(100, sample_rate, 440.0)
     
     audio_data = np.zeros(total_samples)
-    
+    beep_count = 0
+
     for timestamp in seconds:
+        beep_count += 1
+        if beep_count == 3 or beep_count == 5:
+            tone = generate_tone(100, sample_rate, special_frequency)
+        else:
+            tone = generate_tone(100, sample_rate, 440.0)
+
         start_sample = int(timestamp * sample_rate * scaling_factor)
         audio_data[start_sample:start_sample + len(tone)] += tone
     
