@@ -183,7 +183,7 @@ def main():
     unsafe_allow_html=True
 )
 
-     with open(filename, 'rb') as f:
+    with open(filename, 'rb') as f:
         if st.download_button("DOWNLOAD"):
     
             try:
