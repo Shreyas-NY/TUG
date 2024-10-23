@@ -154,7 +154,7 @@ def main():
         default_duration = 1.0
         
     duration = st.number_input("Desired Output Duration [seconds]", min_value=1.0, step=0.1, value=default_duration, help="Example: 10")
-    filename = st.text_input("Output Filename", placeholder="Example: subject_01", value='TUG_MI_Trial_0',help="Example: subject_01")
+    filename = st.text_input("Output Filename", placeholder="Example: subject_01", value='TUG_MI_',help="Example: subject_01")
 
     enable_subdivisions = st.checkbox("Enable subdivisions")
 
@@ -201,7 +201,7 @@ def main():
         final_sample_rate = None
 
         for i in range(len(list_of_durations)):
-            filename += f'{i+1}'
+            # filename += f'{i+1}'
             audio_data, sample_rate = process_file(seconds, list_of_durations[i], filename, enable_subdivisions, subdivisions, numb_subdivisions)
             concatenated_audio = np.concatenate((concatenated_audio, audio_data)) if concatenated_audio.size else audio_data
             final_sample_rate = sample_rate
