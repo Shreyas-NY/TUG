@@ -183,7 +183,7 @@ def main():
     unsafe_allow_html=True
 )
 
-    if st.download_button("DOWNLOAD"):
+    if st.download_button():
 
         try:
             list_of_durations = calculate_durations(duration, number_of_trials)
