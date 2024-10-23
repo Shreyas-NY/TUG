@@ -134,7 +134,7 @@ if uploaded_files:
         if st.button('Average Phase Time'):
             # Sample DataFrame with timestamps (replace this with your actual DataFrame)
             data = {
-                'timestamps': [float(timestamps[i]) for i in st.session_state.selected_frames if i < len(timestamps)]
+                'timestamps': [(timestamps[i]) for i in st.session_state.selected_frames if i < len(timestamps)]
             }
 
             df = pd.DataFrame(data)
@@ -147,7 +147,7 @@ if uploaded_files:
                 # Select every 6th element starting from index i
                 group = df['timestamps'].iloc[i::6]
                 avg = round(group.mean(), 2)  # Calculate the average of the group
-                averages.append(avg)
+                averages.append(float(avg))
 
             st.info(averages)
 
