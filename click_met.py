@@ -208,7 +208,7 @@ def main():
 
 
     except Exception as e:
-        st.warning('Please check if all fields are filled.')
+        st.info('Please check if all fields are filled correctly.')
 
         
         
