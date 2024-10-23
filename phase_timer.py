@@ -121,15 +121,15 @@ if uploaded_files:
             display_selected_frames(st.session_state.selected_frames, timestamps)
 
         # Save button
-        if st.button("Save Selected Frames"):
-            selected_frames = st.session_state.selected_frames
-            if selected_frames:
-                with open("selected_frames.txt", "w") as f:
-                    for frame in selected_frames:
-                        f.write(f"Frame: {frame}, Timestamp: {timestamps[frame]}\n")
-                st.success("Selected frames saved to selected_frames.txt")
-            else:
-                st.warning("No frames selected to save.")
+        # if st.button("Save Selected Frames"):
+        #     selected_frames = st.session_state.selected_frames
+        #     if selected_frames:
+        #         with open("selected_frames.txt", "w") as f:
+        #             for frame in selected_frames:
+        #                 f.write(f"Frame: {frame}, Timestamp: {timestamps[frame]}\n")
+        #         st.success("Selected frames saved to selected_frames.txt")
+        #     else:
+        #         st.warning("No frames selected to save.")
 
         if st.button('Average Phase Time'):
             # Sample DataFrame with timestamps (replace this with your actual DataFrame)
