@@ -1,5 +1,9 @@
 import streamlit as st
-import cv2
+try:
+    import cv2
+    print("OpenCV version:", cv2.__version__)
+except ImportError:
+    print("OpenCV is not installed.")
 import numpy as np
 import pandas as pd
 import tempfile
