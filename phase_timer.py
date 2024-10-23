@@ -153,7 +153,7 @@ if uploaded_files:
 
             # Display the averages in Streamlit without brackets
             st.info('INTERVAL SPACING TO BE COPIED INTO SYNC-TUG:')
-            st.write('#')
+            st.write('###')
             st.success(averages_str)
             # st.info(averages)
 
