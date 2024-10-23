@@ -66,7 +66,7 @@ def process_file(seconds, duration, filename, enable_subdivisions, subdivisions,
     return audio_data, sample_rate
 
 
-def write_to_wav_file(audio_data, filename, sample_rate):
+def write_to_wav_file(audio_data, filename, sample_rate, seconds):
     
     audio_data_pcm = (audio_data * 32767).astype(np.int16)
 
@@ -81,7 +81,7 @@ def write_to_wav_file(audio_data, filename, sample_rate):
         with open(filename, 'rb') as f:
         # Streamlit's download button will now serve the file directly
             st.download_button(
-                label=f"Download {filename}",  # Hidden to user
+                label=f"Download {seconds}",  # Hidden to user
                 data=f,
                 file_name=filename,
                 mime="audio/wav")
@@ -199,7 +199,7 @@ def main():
                 concatenated_audio = np.concatenate((concatenated_audio, audio_data)) if concatenated_audio.size else audio_data
                 final_sample_rate = sample_rate
 
-            write_to_wav_file(concatenated_audio, filename, sample_rate)
+            write_to_wav_file(concatenated_audio, filename, sample_rate, seconds)
                 # write_to_wav_file(audio_data, filename, sample_rate)
             st.success('Done')
 
