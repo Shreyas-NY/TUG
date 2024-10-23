@@ -83,7 +83,7 @@ def write_to_wav_file(audio_data, filename, sample_rate, seconds):
             st.download_button(
                 label=f"Download {seconds}",  # Hidden to user
                 data=f,
-                file_name=f"Motor_Imagery_file_{seconds}",
+                file_name=f"Motor_Imagery_file_{seconds}.wav",
                 mime="audio/wav")
 
 
