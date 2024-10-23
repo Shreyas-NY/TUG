@@ -183,7 +183,7 @@ def main():
     unsafe_allow_html=True
 )
 
-    if st.download_button():
+    if st.download_button(
 
         try:
             list_of_durations = calculate_durations(duration, number_of_trials)
@@ -204,7 +204,7 @@ def main():
                 label=f"Download {seconds}",  # Hidden to user
                 data=f,
                 file_name=f"Motor_Imagery_file_{seconds}",
-                mime="audio/wav"
+                mime="audio/wav")
 
         except Exception as e:
             st.warning(e)
