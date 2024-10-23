@@ -101,10 +101,7 @@ def main():
     
     with st.chat_message('user'):
         
-        st.write("HELP")
-        st.header('INFORMATION')
-        st.markdown('# It is under development')
-
+        st.write("INFORMATION")
         
         tab1, tab2 = st.tabs(["NOTES", 'GUIDE ME'])
 
