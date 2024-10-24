@@ -81,7 +81,20 @@ def write_to_wav_file(audio_data, filename, sample_rate, seconds):
     filename_wav = filename + '.wav'
 
     if 'baseline' in filename:
-        st.info('BASELINE')
+        with wave.open(filename_wav, 'wb') as wav_file:
+                wav_file.setnchannels(1)
+                wav_file.setsampwidth(2)
+                wav_file.setframerate(sample_rate)
+                wav_file.writeframes(audio_data_pcm.tobytes())
+            
+                with open(filename_wav, 'rb') as f:
+                # Streamlit's download button will now serve the file directly
+                    st.download_button(
+                        label=f"Download Baseline {seconds}",  # Hidden to user
+                        data=f,
+                        file_name=f"Baseline_{filename}_{seconds}.wav",
+                        mime="audio/wav")    
+
     
     with wave.open(filename_wav, 'wb') as wav_file:
         wav_file.setnchannels(1)
