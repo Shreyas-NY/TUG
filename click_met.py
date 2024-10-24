@@ -57,7 +57,7 @@ def process_file(seconds, duration, filename, enable_subdivisions, subdivisions,
     for timestamp in seconds:
         beep_count += 1
         if beep_count == 1 or beep_count == 6:
-            tone = generate_tone(200, sample_rate, special_frequency)
+            tone = generate_tone(300, sample_rate, special_frequency)
         else:
             tone = generate_tone(100, sample_rate, 440.0)
 
