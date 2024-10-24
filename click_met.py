@@ -79,6 +79,9 @@ def write_to_wav_file(audio_data, filename, sample_rate, seconds):
     audio_data_pcm = (audio_data * 32767).astype(np.int16)
 
     filename_wav = filename + '.wav'
+
+    if 'baseline' in filename:
+        st.info('BASELINE')
     
     with wave.open(filename_wav, 'wb') as wav_file:
         wav_file.setnchannels(1)
@@ -206,6 +209,13 @@ def main():
         write_to_wav_file(concatenated_audio, filename, sample_rate, seconds)
             # write_to_wav_file(audio_data, filename, sample_rate)
 
+        baseline_part = int(duration * final_sample_rate)
+
+        # Slice the concatenated audio to retain only the first part
+        baseline_part_audio = concatenated_audio[:baseline_part]
+
+        # Write only the first part to the WAV file
+        write_to_wav_file(baseline_part_audio, filename + "_baseline", final_sample_rate, seconds)
 
 
 
