@@ -4,10 +4,6 @@ import time
 import threading
 import wave
 import io
-from streamlit_gsheets import GSheetsConnection
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 scaled_seconds = []
 
