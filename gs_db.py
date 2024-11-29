@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 st.title("TUG Management Portal")
 st.info(st.secrets["connections_gsheets"]["spreadsheet"]) 
 spreadsheet = st.secrets["connections_gsheets"]["spreadsheet"]
-conn = st.connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", spreadsheet=spreadsheet, type=GSheetsConnection)
 
 # Fetch existing data
 existing_data = conn.read(worksheet='TUG_SCORE', ttl=1)
