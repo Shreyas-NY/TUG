@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 # Establishing a Google Sheets connection
 
 st.title("TUG Management Portal")
+st,info(st.secrets["g_sheets"]["spreadsheet_id"]) 
 spreadsheet = st.secrets["connections.gsheets"]["spreadsheet"]
 conn = st.connection(spreadsheet=spreadsheet, type=GSheetsConnection)
 
