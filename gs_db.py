@@ -12,8 +12,7 @@ st.success(spreadsheet)
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 # Fetch existing data
-# existing_data = conn.read(worksheet='TUG_SCORE', ttl=1)
-existing_data = conn.read(spreadsheet)
+existing_data = conn.read(worksheet='TUG_SCORE', ttl=1)
 existing_data = existing_data.dropna(how="all")
 
 
