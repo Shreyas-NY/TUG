@@ -1,2 +1,2 @@
 opencv-python-headless
-GSheetsConnection
+st-gsheets-connection
