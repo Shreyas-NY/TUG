@@ -12,7 +12,7 @@ spreadsheet = st.secrets["connections_gsheets"]["spreadsheet"]
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 # Fetch existing data
-existing_data = conn.read(worksheet='TUG_SCORE', ttl=1)
+existing_data = conn.read('gsheets',worksheet='TUG_SCORE', ttl=1)
 existing_data = existing_data.dropna(how="all")
 
 
