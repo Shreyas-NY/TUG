@@ -10,8 +10,8 @@ st.title("TUG Management Portal")
 spreadsheet = st.secrets["connections_gsheets"]["spreadsheet"]
 conn = st.connection("gsheets", type=GSheetsConnection)
 # Fetch existing data
-# existing_data = conn.read(worksheet='TUG_SCORE')
-# existing_data = existing_data.dropna(how="all")
+existing_data = conn.read(worksheet='TUG_SCORE')
+existing_data = existing_data.dropna(how="all")
 
 
 ICD = [
