@@ -14,7 +14,7 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 st.info(conn)
 
 # Fetch existing data
-existing_data = conn.read(worksheet='TUG_SCORE', ttl=1)
+existing_data = conn.write(worksheet='TUG_SCORE', ttl=1)
 existing_data = existing_data.dropna(how="all")
 
 
