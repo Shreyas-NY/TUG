@@ -12,7 +12,7 @@ spreadsheet = 'https://docs.google.com/spreadsheets/d/1U3NxrG2Kol0fWUyS9r9h3oQsd
 st.success(spreadsheet)
 conn = st.connection("gsheets", type=GSheetsConnection)
 st.info(conn)
-df = conn.read()
+df = conn.read(spreadsheet)
 
 # Fetch existing data
 existing_data = conn.read(worksheet='TUG_SCORE')
