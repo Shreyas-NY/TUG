@@ -7,16 +7,11 @@ import matplotlib.pyplot as plt
 # Establishing a Google Sheets connection
 
 st.title("TUG Management Portal")
-# spreadsheet = st.secrets["connections_gsheets"]["spreadsheet"]
-spreadsheet = 'https://docs.google.com/spreadsheets/d/1U3NxrG2Kol0fWUyS9r9h3oQsd9ZjyhEFv-5c2ZjOeoE'
-st.success(spreadsheet)
+spreadsheet = st.secrets["connections_gsheets"]["spreadsheet"]
 conn = st.connection("gsheets", type=GSheetsConnection)
-st.info(conn)
-df = conn.read(spreadsheet)
-
 # Fetch existing data
-existing_data = conn.read(worksheet='TUG_SCORE')
-existing_data = existing_data.dropna(how="all")
+# existing_data = conn.read(worksheet='TUG_SCORE')
+# existing_data = existing_data.dropna(how="all")
 
 
 ICD = [
