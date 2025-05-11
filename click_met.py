@@ -212,6 +212,7 @@ def main():
 
         concatenated_audio = np.array([])
         final_sample_rate = None
+        SLEEP_DURATION = 10
         
 
         for i in range(len(list_of_durations)):
@@ -219,7 +220,7 @@ def main():
             audio_data, sample_rate = process_file(seconds, list_of_durations[i], filename, enable_subdivisions, subdivisions, numb_subdivisions)
             concatenated_audio = np.concatenate((concatenated_audio, audio_data)) if concatenated_audio.size else audio_data
             final_sample_rate = sample_rate
-            silent_gap = np.zeros(int(5 * final_sample_rate))
+            silent_gap = np.zeros(int(SLEEP_DURATION * final_sample_rate))
             concatenated_audio = np.concatenate((concatenated_audio, silent_gap))
 
         write_to_wav_file(concatenated_audio, filename, sample_rate, seconds)
